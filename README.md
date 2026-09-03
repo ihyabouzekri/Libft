@@ -1,6 +1,5 @@
 <p align="center">
 	<img src="https://img.shields.io/badge/status-finished-success?color=%2312bab9&style=flat-square"/>
-	<img src="https://img.shields.io/badge/evaluated-11%03%2F%2012%20%2F%202025-success?color=%2312bab9&style=flat-square"/>
 	<img src="https://img.shields.io/badge/score-125%20%2F%20100-success?color=%2312bab9&style=flat-square"/>
 </p>
 
