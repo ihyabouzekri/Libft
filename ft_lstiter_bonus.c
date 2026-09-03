@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibouzekr <ibouzekr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 16:27:53 by ibouzekr          #+#    #+#             */
-/*   Updated: 2025/11/01 13:46:41 by ibouzekr         ###   ########.fr       */
+/*   Created: 2025/10/29 23:45:43 by ibouzekr          #+#    #+#             */
+/*   Updated: 2025/10/29 23:58:32 by ibouzekr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i])
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		if (s[i] == (char) c)
-			return ((char *)&s[i]);
-		i++;
+		(*f)(lst -> content);
+		lst = lst -> next;
 	}
-	if ((char) c == '\0')
-		return ((char *)&s[i]);
-	return (NULL);
 }

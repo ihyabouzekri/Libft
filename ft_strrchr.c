@@ -1,41 +1,31 @@
-#include <string.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibouzekr <ibouzekr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/19 22:18:38 by ibouzekr          #+#    #+#             */
+/*   Updated: 2025/10/31 17:42:55 by ibouzekr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strrchr(const char *s, int c){
+#include "libft.h"
 
-    size_t i = 0;
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
 
-    while (s[i])
-        i++;
-
-    while (i >= 0){
-        
-        if ((unsigned char)s[i] == (unsigned char)c) //if c = '\0' it will work fine because s[i] = '\0' in the first loop 
-            return (char *) &s[i];
-        
-        i--;
-    }
-
-    return NULL;
+	i = 0;
+	if (!s)
+		return (NULL);
+	while (s[i])
+		i++;
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i--;
+	}
+	return (NULL);
 }
-/*
-int main (){
-    const char s[] = {57,65,83,57,73,77};
-
-    printf("copy: \n");
-    printf("%s\n",ft_strrchr(s, 65) );
-    printf("original: \n" );
-    printf("%s\n",strrchr(s, 65) );
-
-}*/
-
-int main (){
-    const char s[] = {57,65,83,57,73,77};
-
-    printf("copy: \n");
-    printf("%s\n",ft_strrchr("abc", '\0') );
-    printf("original: \n" );
-    printf("%s\n",strrchr("abc", '\0') );
-
-}
-

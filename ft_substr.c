@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibouzekr <ibouzekr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 16:27:53 by ibouzekr          #+#    #+#             */
-/*   Updated: 2025/11/01 13:46:41 by ibouzekr         ###   ########.fr       */
+/*   Created: 2025/10/19 23:47:09 by ibouzekr          #+#    #+#             */
+/*   Updated: 2025/11/01 13:17:57 by ibouzekr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
+	size_t	s_len;
+	char	*ptr;
 
-	i = 0;
 	if (!s)
 		return (NULL);
-	while (s[i])
+	s_len = ft_strlen(s);
+	if (start > s_len - 1)
 	{
-		if (s[i] == (char) c)
-			return ((char *)&s[i]);
-		i++;
+		ptr = (char *) malloc(1);
+		if (ptr == NULL)
+			return (NULL);
+		ptr[0] = '\0';
+		return (ptr);
 	}
-	if ((char) c == '\0')
-		return ((char *)&s[i]);
-	return (NULL);
+	ptr = (char *) malloc(len + 1);
+	if (ptr == NULL)
+		return (NULL);
+	ft_memcpy(ptr, s + start, len);
+	ptr[len] = '\0';
+	return (ptr);
 }
